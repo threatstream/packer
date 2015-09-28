@@ -2,10 +2,10 @@ package common
 
 import (
 	"fmt"
-	"log"
+	_ "log"
 	"os"
 	"path/filepath"
-	"time"
+	_ "time"
 
 	"github.com/mitchellh/multistep"
 	"github.com/mitchellh/packer/packer"
@@ -72,6 +72,7 @@ func (s *StepOutputDir) Cleanup(state multistep.StateBag) {
 		ui := state.Get("ui").(packer.Ui)
 
 		ui.Say("Deleting output directory...")
+		/*
 		for i := 0; i < 5; i++ {
 			err := os.RemoveAll(s.Path)
 			if err == nil {
@@ -81,5 +82,6 @@ func (s *StepOutputDir) Cleanup(state multistep.StateBag) {
 			log.Printf("Error removing output dir: %s", err)
 			time.Sleep(2 * time.Second)
 		}
+		*/
 	}
 }

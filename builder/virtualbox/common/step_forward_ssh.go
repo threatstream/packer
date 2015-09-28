@@ -65,6 +65,13 @@ func (s *StepForwardSSH) Run(state multistep.StateBag) multistep.StepAction {
 		command := []string{
 			"modifyvm", vmName,
 			"--natpf1",
+			"delete", "packercomm",
+		}
+		driver.VBoxManage(command...)
+
+		command = []string{
+			"modifyvm", vmName,
+			"--natpf1",
 			fmt.Sprintf("packercomm,tcp,127.0.0.1,%d,,%d", sshHostPort, guestPort),
 		}
 		if err := driver.VBoxManage(command...); err != nil {

@@ -49,7 +49,8 @@ func (d *VBox42Driver) CreateSCSIController(vmName string, name string) error {
 }
 
 func (d *VBox42Driver) Delete(name string) error {
-	return d.VBoxManage("unregistervm", name, "--delete")
+	// return d.VBoxManage("unregistervm", name, "--delete")
+	return nil
 }
 
 func (d *VBox42Driver) Iso() (string, error) {
