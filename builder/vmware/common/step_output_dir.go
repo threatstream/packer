@@ -2,8 +2,8 @@ package common
 
 import (
 	"fmt"
-	"log"
-	"time"
+	_ "log"
+	_ "time"
 
 	"github.com/mitchellh/multistep"
 	"github.com/mitchellh/packer/packer"
@@ -57,6 +57,7 @@ func (s *StepOutputDir) Cleanup(state multistep.StateBag) {
 	_, halted := state.GetOk(multistep.StateHalted)
 
 	if cancelled || halted {
+/*
 		dir := state.Get("dir").(OutputDir)
 		ui := state.Get("ui").(packer.Ui)
 
@@ -73,5 +74,6 @@ func (s *StepOutputDir) Cleanup(state multistep.StateBag) {
 				time.Sleep(2 * time.Second)
 			}
 		}
+*/
 	}
 }
