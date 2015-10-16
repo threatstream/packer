@@ -191,6 +191,7 @@ func (s *StepRunSourceInstance) Run(state multistep.StateBag) multistep.StepActi
 			runOpts.InstanceInitiatedShutdownBehavior = &s.InstanceInitiatedShutdownBehavior
 		}
 
+                fmt.Printf("EC2 Run Options:\n%+v\n", runOpts)
 		runResp, err := ec2conn.RunInstances(runOpts)
 		if err != nil {
 			err := fmt.Errorf("Error launching source instance: %s", err)
