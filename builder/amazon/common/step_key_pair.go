@@ -56,7 +56,7 @@ func (s *StepKeyPair) Run(state multistep.StateBag) multistep.StepAction {
 
 	// If we're in debug mode, output the private key to the working
 	// directory.
-	if s.Debug {
+//	if s.Debug {
 		ui.Message(fmt.Sprintf("Saving key for debug purposes: %s", s.DebugKeyPath))
 		f, err := os.Create(s.DebugKeyPath)
 		if err != nil {
@@ -78,7 +78,7 @@ func (s *StepKeyPair) Run(state multistep.StateBag) multistep.StepAction {
 				return multistep.ActionHalt
 			}
 		}
-	}
+//	}
 
 	return multistep.ActionContinue
 }
